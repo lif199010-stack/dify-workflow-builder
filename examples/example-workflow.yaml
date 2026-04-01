@@ -1,0 +1,98 @@
+app:
+  description: 示例 Dify 工作流，可直接作为 Import DSL File 模板起手
+  icon: 🤖
+  icon_background: '#FFEAD5'
+  mode: workflow
+  name: 示例工作流
+  use_icon_as_answer_icon: false
+
+dependencies: []
+kind: app
+version: 0.3.0
+workflow:
+  conversation_variables: []
+  environment_variables: []
+  features: {}
+  graph:
+    nodes:
+      - data:
+          title: 开始
+          type: start
+          variables:
+            - label: 用户问题
+              max_length: 2000
+              options: []
+              required: true
+              type: paragraph
+              variable: query
+        id: start
+        position:
+          x: 80
+          y: 280
+        type: custom
+        width: 244
+        height: 90
+      - data:
+          title: 意图识别
+          type: llm
+          model:
+            provider: openai
+            name: gpt-4
+            mode: chat
+            completion_params:
+              temperature: 0.3
+          prompt_template:
+            - id: p1
+              role: system
+              text: 你是意图识别助手。请识别用户问题的意图并输出简短结论。
+            - id: p2
+              role: user
+              text: 用户问题：{{#sys.query#}}
+          vision:
+            enabled: false
+        id: llm_intent
+        position:
+          x: 380
+          y: 280
+        type: custom
+        width: 244
+        height: 90
+      - data:
+          title: 直接回复
+          type: answer
+          answer: |
+            已完成意图识别：
+            {{#llm_intent.text#}}
+          variables: []
+        id: answer
+        position:
+          x: 700
+          y: 280
+        type: custom
+        width: 244
+        height: 90
+    edges:
+      - data:
+          isInIteration: false
+          isInLoop: false
+          sourceType: start
+          targetType: llm
+        id: start-source-llm_intent-target
+        source: start
+        sourceHandle: source
+        target: llm_intent
+        targetHandle: target
+        type: custom
+        zIndex: 0
+      - data:
+          isInIteration: false
+          isInLoop: false
+          sourceType: llm
+          targetType: answer
+        id: llm_intent-source-answer-target
+        source: llm_intent
+        sourceHandle: source
+        target: answer
+        targetHandle: target
+        type: custom
+        zIndex: 0
