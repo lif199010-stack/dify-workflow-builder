@@ -1,0 +1,10 @@
+dify-workflow-builder
+Copyright 2026 Irfan Lee
+
+This project was created by Irfan Lee and published as an Agent Skill project.
+
+It is informed by publicly available open repositories and skills, including:
+- wwwzhouhui/skills_collection/dify-dsl-generator
+- lazeyliu/dify-dsl-generator-skills
+
+This repository is an integrated derivative-style implementation and workflow design effort, not a verbatim copy of those sources.

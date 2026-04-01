@@ -15,6 +15,23 @@ It helps users go from:
 
 ---
 
+## 中文简介
+
+`dify-workflow-builder` 是一个面向 Dify 用户和 Agent 使用者的工作流构建 Skill。
+
+它不只是“生成 YAML”，而是完整覆盖：
+- 业务梳理
+- 需求明确
+- 工作流设计
+- Dify DSL YAML 生成
+- review / refactor / validate
+- 调试与落地
+- URL 驱动识别现有 Dify app 并继续搭建 / 修正
+
+如果你想让 Agent 带你从业务需求一路走到 Dify 工作流落地，这个项目就是为这件事设计的。
+
+---
+
 ## What it does
 
 `dify-workflow-builder` is not just a YAML generator.
@@ -127,6 +144,25 @@ https://your-dify-url/apps/xxx/workflow
 
 ---
 
+## Recommended Chinese trigger phrases
+
+如果你在中文环境里使用，推荐直接对 Agent 说：
+
+```text
+启动 Dify 工作流保姆式搭建流程
+```
+
+```text
+帮我根据业务需求生成 Dify DSL YAML file，并告诉我怎么通过 Import DSL File 导入。
+```
+
+```text
+这是我的 Dify 页面地址，你自己识别并继续帮我搭建 / 修正：
+[粘贴 URL]
+```
+
+---
+
 ## Output contract
 
 The skill is designed to avoid dumping raw YAML too early.
@@ -155,6 +191,17 @@ dify-workflow-builder/
 ├── references/
 └── scripts/
 ```
+
+---
+
+## Project guides
+
+- `USER_GUIDE_FOR_DIFY_USERS.md` — end-user tutorial
+- `TUTORIAL.md` — tutorial entry
+- `references/public-user-tutorial.md` — public-facing tutorial body
+- `references/nanny-mode.md` — nanny-mode protocol
+- `references/dify-bug-runbook.md` — Dify troubleshooting runbook
+- `references/dify-url-entry.md` — URL-driven entry protocol
 
 ---
 
@@ -189,6 +236,12 @@ This repository is a new integrated implementation, not a verbatim copy of eithe
 - Importable does **not** automatically mean production-ready.
 - Dify has real import / compatibility / UI edge cases, so review and validation remain important.
 - For real Dify write-back flows, use UTF-8 file handoff and read-back verification.
+
+---
+
+## License
+
+Apache-2.0
 
 ---
 
