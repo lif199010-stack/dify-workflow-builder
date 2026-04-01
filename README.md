@@ -1,5 +1,11 @@
 # dify-workflow-builder
 
+> Build Dify workflows from business requirements — with design, DSL generation, review, refactor, validation, nanny-mode guidance, and URL-driven app recognition.
+
+![License](https://img.shields.io/badge/license-Apache--2.0-blue.svg)
+![Release](https://img.shields.io/github/v/release/lif199010-stack/dify-workflow-builder)
+![Topics](https://img.shields.io/badge/dify-agent--skill-brightgreen)
+
 A production-oriented Agent Skill for **designing, generating, reviewing, refactoring, validating, and landing Dify workflows** from business requirements.
 
 It helps users go from:
@@ -12,6 +18,22 @@ It helps users go from:
 - debugging and refinement
 
 …all the way to a workflow that can be imported through **Dify → Import DSL File**.
+
+---
+
+## Why this project exists
+
+Working with Dify is rarely just about “writing YAML”.
+The real challenges are usually:
+
+- unclear business requirements
+- uncertainty between `workflow`, `advanced-chat`, `rag_pipeline`, and `agent-chat`
+- imported YAML that looks fine but does not really run
+- draft/app mismatch (“changed but no visible effect”)
+- plugin / tool / model / UI compatibility problems
+- users who only provide a Dify URL and expect the Agent to continue from there
+
+`dify-workflow-builder` is built to solve those real workflow-building problems.
 
 ---
 
@@ -53,7 +75,7 @@ It is a full workflow-building skill that can:
 
 ---
 
-## Included capabilities
+## What is included
 
 ### Design & generation
 - Business interview and requirement clarification
@@ -107,7 +129,26 @@ Supported higher-frequency node families include:
 
 ---
 
-## How to use
+## Typical use cases
+
+### 1. Start from a business idea
+You only know the goal, and want the Agent to guide the whole process.
+
+### 2. Generate an importable Dify DSL YAML file
+You already know your target flow and want a structured YAML output.
+
+### 3. Review existing Dify YAML
+You want to know whether a file is an Import DSL File candidate.
+
+### 4. Refactor a broken workflow
+You already have a flow, but it is messy or partially broken.
+
+### 5. Continue from an existing Dify URL
+You provide a Dify app/workflow URL and want the Agent to identify the target app and continue from there.
+
+---
+
+## Quick start
 
 ### Typical trigger
 
@@ -200,6 +241,7 @@ dify-workflow-builder/
 - `TUTORIAL.md` — tutorial entry
 - `references/public-user-tutorial.md` — public-facing tutorial body
 - `references/nanny-mode.md` — nanny-mode protocol
+- `references/execution-protocol.md` — stage-based execution protocol
 - `references/dify-bug-runbook.md` — Dify troubleshooting runbook
 - `references/dify-url-entry.md` — URL-driven entry protocol
 
